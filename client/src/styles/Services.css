@@ -1,0 +1,95 @@
+.services-page .page-header {
+    background: var(--primary-blue);
+    color: var(--white);
+
+    text-align: center;
+}
+
+.services-detail {
+    padding: 80px 0;
+}
+
+.service-detail {
+    background: var(--white);
+    padding: 3rem;
+    margin-bottom: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-left: 4px solid var(--primary-orange);
+}
+
+.service-detail h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.service-description {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.service-detail ul {
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.service-detail li {
+    padding: 0.8rem 0;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 2rem;
+    color: var(--dark-gray);
+}
+
+.service-detail li:before {
+    content: "✓";
+    color: var(--primary-orange);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.service-detail li:last-child {
+    border-bottom: none;
+}
+
+.services-cta {
+    background: var(--light-gray);
+    text-align: center;
+    padding: 80px 0;
+}
+
+.services-cta h2 {
+    color: var(--primary-blue);
+    margin-bottom: 1rem;
+    font-size: 2.2rem;
+}
+
+.services-cta p {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 768px) {
+    .services-page .page-header {
+        padding: 130px 0 40px;
+    }
+    
+    .service-detail {
+        padding: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .service-detail h2 {
+        font-size: 1.8rem;
+    }
+    
+    .service-detail li {
+        padding-left: 1.5rem;
+    }
+}

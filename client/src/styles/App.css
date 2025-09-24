@@ -1,0 +1,93 @@
+:root {
+    --primary-blue: #369BD3;
+    --primary-orange: #FFB61F;
+    --white: #FFFFFF;
+    --dark-gray: #333333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #666;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: var(--dark-gray);
+    background-color: var(--white);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: var(--primary-blue);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-align: center;
+}
+
+.btn:hover {
+    background: #2a7aac;
+    transform: translateY(-2px);
+}
+
+.btn-orange {
+    background: var(--primary-orange);
+}
+
+.btn-orange:hover {
+    background: #e6a21c;
+}
+
+section {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: var(--primary-blue);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: var(--medium-gray);
+    font-size: 1.1rem;
+}
+
+main {
+    margin-top: 80px; /* Account for fixed header */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    .section-title h2 {
+        font-size: 2rem;
+    }
+}
