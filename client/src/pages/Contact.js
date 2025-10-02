@@ -18,20 +18,6 @@ const Contact = () => {
         });
     };
 
-    const generateMailtoLink = () => {
-        const subject = `Contact Request from ${formData.name} - ${formData.service || 'General Inquiry'}`;
-        
-        let body = `New contact form submission:\n\n`;
-        body += `Name: ${formData.name}\n`;
-        body += `Email: ${formData.email}\n`;
-        body += `Phone: ${formData.phone || 'Not provided'}\n`;
-        body += `Company: ${formData.company || 'Not provided'}\n`;
-        body += `Service Interested In: ${formData.service || 'Not specified'}\n\n`;
-        body += `Message:\n${formData.message}`;
-
-        return `mailto:info@hangoconsulting.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    };
-
 // In Contact.js - replace the handleSubmit function:
 
 const handleSubmit = async (e) => {
@@ -111,9 +97,6 @@ const handleSubmit = async (e) => {
 
                         <div className="contact-form">
                             <h2>Send us a Message</h2>
-                            <p className="form-notice">
-                                <strong>Note:</strong> This will open your email client to send us a message.
-                            </p>
                             <form onSubmit={handleSubmit}>
                                 <div className="form-group">
                                     <input
