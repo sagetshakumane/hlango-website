@@ -32,20 +32,31 @@ const Contact = () => {
         return `mailto:info@hangoconsulting.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        
-        // Validate required fields
-        if (!formData.name || !formData.email || !formData.message) {
-            alert('Please fill in all required fields: Name, Email, and Message');
-            return;
-        }
+// In Contact.js - replace the handleSubmit function:
 
-        // Open email client with pre-populated data
-        window.location.href = generateMailtoLink();
-        
-        // Optional: Show confirmation message and reset form
-        setTimeout(() => {
+const handleSubmit = async (e) => {
+    e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name || !formData.email || !formData.message) {
+        alert('Please fill in all required fields: Name, Email, and Message');
+        return;
+    }
+
+    try {
+        const response = await fetch('https://hlango-website-backend.onrender.com/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const result = await response.json();
+
+        if (result.success) {
+            alert('Thank you for your message! We will get back to you within 24 hours.');
+            // Reset form
             setFormData({
                 name: '',
                 email: '',
@@ -54,8 +65,14 @@ const Contact = () => {
                 service: '',
                 message: ''
             });
-        }, 1000);
-    };
+        } else {
+            alert('Error submitting form. Please try again or contact us directly.');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        alert('Error submitting form. Please try again or contact us directly.');
+    }
+};
 
     return (
         <div className="contact-page">
