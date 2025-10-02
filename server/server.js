@@ -6,7 +6,14 @@ require('dotenv').config();
 const app = express();
 
 // Middleware
-app.use(cors());
+// In server.js - update CORS configuration
+app.use(cors({
+    origin: [
+        'https://hlango-website-frontend.onrender.com', // Your frontend URL
+        'http://localhost:3000' // For local development
+    ],
+    credentials: true
+}));
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '../client/build')));
 
